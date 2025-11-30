@@ -1,6 +1,6 @@
 import React from "react";
 
-function IntroSection({ darkMode }) {
+function IntroSection() {
   return (
     <section
       id="intro"

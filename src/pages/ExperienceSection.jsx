@@ -1,22 +1,7 @@
 import React from "react";
 
-// Sample work experience data
-const workExperienceData = [
-  {
-    company: "Company 1",
-    details: ["- info", "- more info", "- more info"],
-  },
-  {
-    company: "Company 2",
-    details: ["- info", "- more info", "- more info"],
-  },
-];
-
-// Sample education data
-const educationData = [
-  { school: "UMUC", color: "#FDB927" },
-  { school: "General Assembly", color: "#FF6B6B" },
-];
+// Data
+import { workExperienceData, educationData } from "../data/experienceData";
 
 function ExperienceSection({ darkMode, isVisible, sectionRef }) {
   return (

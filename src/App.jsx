@@ -1,18 +1,26 @@
+// Modules
 import React, { useState, useEffect, useRef } from "react";
-import { Sun, Moon } from "lucide-react";
+
+// Pages
 import IntroSection from "./pages/IntroSection";
 import ProjectsSection from "./pages/ProjectsSection";
 import ExperienceSection from "./pages/ExperienceSection";
 import ContactSection from "./pages/ContactSection";
 
+// Icons
+import { Sun, Moon } from "lucide-react";
+
 function App() {
+  // State
   const [darkMode, setDarkMode] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
 
-  const sectionsRef = useRef([]);
+  // Refs
+  const observerRef = useRef(null);
 
+  // Effects
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -23,12 +31,18 @@ function App() {
       { threshold: 0.1 }
     );
 
-    sectionsRef.current.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, []);
+
+  const handleSectionRef = (el) => {
+    if (el && observerRef.current) {
+      observerRef.current.observe(el);
+    }
+  };
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
@@ -81,19 +95,19 @@ function App() {
       <ProjectsSection
         darkMode={darkMode}
         isVisible={visibleSections.has("projects")}
-        sectionRef={(el) => (sectionsRef.current[0] = el)}
+        sectionRef={handleSectionRef}
       />
 
       <ExperienceSection
         darkMode={darkMode}
         isVisible={visibleSections.has("experience")}
-        sectionRef={(el) => (sectionsRef.current[1] = el)}
+        sectionRef={handleSectionRef}
       />
 
       <ContactSection
         darkMode={darkMode}
         isVisible={visibleSections.has("contact")}
-        sectionRef={(el) => (sectionsRef.current[2] = el)}
+        sectionRef={handleSectionRef}
       />
     </div>
   );

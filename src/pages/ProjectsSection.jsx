@@ -1,44 +1,10 @@
 import React from "react";
 
-// Sample project data - this would come from your JSON file
-const projectsData = [
-  {
-    id: 1,
-    title: "Project Title",
-    description: "Project Description",
-    image: null,
-    technologies: ["React", "Node", "MongoDB", "Python"],
-    isPublic: true,
-  },
-  {
-    id: 2,
-    title: "Project Title",
-    description: "Project Description",
-    image: null,
-    technologies: ["JavaScript", "CSS", "HTML"],
-    isPublic: false,
-  },
-  {
-    id: 3,
-    title: "Project Title",
-    description: "Project Description",
-    image: null,
-    technologies: ["React", "Python", "PostgreSQL", "Docker"],
-    isPublic: true,
-  },
-];
+// Config
+import { techColors } from "../config/techConfig";
 
-const techColors = {
-  React: "#61DAFB",
-  Node: "#E389B9",
-  MongoDB: "#7DD3C0",
-  Python: "#F7DC6F",
-  JavaScript: "#F0B27A",
-  CSS: "#BB8FCE",
-  HTML: "#7DD3C0",
-  PostgreSQL: "#52C7B8",
-  Docker: "#85C1E9",
-};
+// Data
+import { projectsData } from "../data/projectData";
 
 function ProjectsSection({ darkMode, isVisible, sectionRef }) {
   return (
