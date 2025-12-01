@@ -9,6 +9,7 @@ import ContactSection from "./pages/ContactSection";
 
 // Components
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   // State
@@ -73,6 +74,8 @@ function App() {
         isVisible={visibleSections.has("contact")}
         sectionRef={handleSectionRef}
       />
+
+      <Footer darkMode={darkMode} />
     </div>
   );
 }

@@ -28,10 +28,6 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
     link.click();
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <section
       id="contact"
@@ -111,16 +107,6 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
                 Download
               </button>
             </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t">
-            <p className="text-sm italic">Copyright 2025, Clayton O'Neil</p>
-            <button
-              onClick={scrollToTop}
-              className="px-4 py-2 bg-purple-300 text-gray-900 rounded hover:bg-purple-400 transition-colors text-sm"
-            >
-              Back to top
-            </button>
           </div>
         </div>
       </div>
