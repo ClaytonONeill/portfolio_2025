@@ -41,9 +41,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
       }`}
     >
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif italic mb-8">
-          Contact and Resume Download with Footer
-        </h2>
+        <h2 className="text-3xl font-serif italic mb-8">Contact</h2>
 
         <div
           className={`border rounded-lg p-8 ${

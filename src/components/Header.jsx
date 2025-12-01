@@ -5,7 +5,12 @@ import React, { useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 
 const Header = ({ darkMode, toggleDarkMode }) => {
+  // State
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Reusable classes for link underline
+  const underline = `absolute left-0 -bottom-1 h-[2px] w-full scale-x-0 origin-left 
+                     transition-transform duration-300 group-hover:scale-x-100`;
 
   return (
     <header
@@ -16,17 +21,40 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       <nav className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8 text-sm">
-          <a href="#intro" className="hover:opacity-70 transition-opacity">
+          <a href="#intro" className="relative group">
             Intro
+            <span
+              className={`${underline} ${
+                darkMode ? "bg-yellow-400" : "bg-gray-900"
+              }`}
+            />
           </a>
-          <a href="#projects" className="hover:opacity-70 transition-opacity">
+
+          <a href="#projects" className="relative group">
             Projects
+            <span
+              className={`${underline} ${
+                darkMode ? "bg-yellow-400" : "bg-gray-900"
+              }`}
+            />
           </a>
-          <a href="#experience" className="hover:opacity-70 transition-opacity">
+
+          <a href="#experience" className="relative group">
             Experience
+            <span
+              className={`${underline} ${
+                darkMode ? "bg-yellow-400" : "bg-gray-900"
+              }`}
+            />
           </a>
-          <a href="#contact" className="hover:opacity-70 transition-opacity">
+
+          <a href="#contact" className="relative group">
             Contact
+            <span
+              className={`${underline} ${
+                darkMode ? "bg-yellow-400" : "bg-gray-900"
+              }`}
+            />
           </a>
         </div>
 
@@ -67,6 +95,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           >
             Intro
           </a>
+
           <a
             href="#projects"
             className="hover:opacity-70 transition-opacity"
@@ -74,6 +103,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           >
             Projects
           </a>
+
           <a
             href="#experience"
             className="hover:opacity-70 transition-opacity"
@@ -81,6 +111,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
           >
             Experience
           </a>
+
           <a
             href="#contact"
             className="hover:opacity-70 transition-opacity"
