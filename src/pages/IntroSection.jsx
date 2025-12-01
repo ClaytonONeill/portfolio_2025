@@ -2,6 +2,14 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 
 function IntroSection() {
+  // Methods
+  const calculateExperience = () => {
+    const currentDate = new Date().getFullYear();
+    const startingDate = new Date(2020, 2, 14).getFullYear();
+
+    return currentDate - startingDate;
+  };
+
   return (
     <section
       id="intro"
@@ -29,8 +37,11 @@ function IntroSection() {
           <h1 className="text-6xl font-handwriting mb-6">Hello!</h1>
 
           <p className="text-lg mb-4">
-            My name is Clay and I am a full-stack web developer with 5 years of
-            experience!
+            My name is Clay and I am a full-stack web developer with{" "}
+            <span className="text-green-500 font-bold">
+              {calculateExperience()}
+            </span>{" "}
+            years of experience!
           </p>
 
           {/* Typewriter Block */}

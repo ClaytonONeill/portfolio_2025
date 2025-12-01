@@ -7,7 +7,7 @@ const Footer = ({ darkMode }) => {
 
   return (
     <footer
-      className={`mt-16 border-t ${
+      className={`border-t ${
         darkMode ? "border-gray-700 bg-gray-900" : "border-gray-300 bg-gray-50"
       }`}
     >
