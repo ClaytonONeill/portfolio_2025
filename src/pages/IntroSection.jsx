@@ -19,7 +19,7 @@ function IntroSection() {
             Sprite 3
           </div>
           <p className="text-sm italic hidden md:block">
-            (ideally these would be animated sprites)
+            (will be updated to animated sprites)
           </p>
         </div>
         <div>
