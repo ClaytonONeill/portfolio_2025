@@ -20,8 +20,8 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-8 text-sm">
-          <a href="#intro" className="relative group">
+        <div className="hidden md:flex gap-8 text-base">
+          <a href="#intro" className="relative group cursor-pointer">
             Intro
             <span
               className={`${underline} ${
@@ -30,7 +30,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             />
           </a>
 
-          <a href="#projects" className="relative group">
+          <a href="#projects" className="relative group cursor-pointer">
             Projects
             <span
               className={`${underline} ${
@@ -39,7 +39,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             />
           </a>
 
-          <a href="#experience" className="relative group">
+          <a href="#experience" className="relative group cursor-pointer">
             Experience
             <span
               className={`${underline} ${
@@ -48,7 +48,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
             />
           </a>
 
-          <a href="#contact" className="relative group">
+          <a href="#contact" className="relative group cursor-pointer">
             Contact
             <span
               className={`${underline} ${
