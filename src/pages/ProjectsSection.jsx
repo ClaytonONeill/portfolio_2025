@@ -16,6 +16,7 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
       }`}
     >
       <div className="max-w-4xl mx-auto space-y-6">
+        <h2 className="text-3xl font-serif italic mb-8">Projects</h2>
         {projectsData.map((project) => (
           <div
             key={project.id}
