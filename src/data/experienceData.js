@@ -22,6 +22,31 @@ export const workExperienceData = [
 ];
 
 export const educationData = [
-  { school: "UMGC", color: "#FDB927" },
-  { school: "General Assembly", color: "#FF6B6B" },
+  {
+    school: "University of Maryland Global Campus",
+    location: "College Park, MD",
+    degree: "Bachelor of Science",
+    majors: ["Computer Science", "Web & Digital Design"],
+    graduation: "December 2025",
+    focus: [
+      "Software engineering",
+      "Data structures and algorithm design",
+      "Accessible web development",
+      "UX/UI principles",
+      "Full-stack web development",
+      "Python programming",
+    ],
+    color: "#FDB927",
+  },
+  {
+    school: "General Assembly",
+    location: "Washington, D.C.",
+    program: "Software Engineering Fellow",
+    duration: "February 2020 - April 2020",
+    description: [
+      "Intensive 24-week, 700-hour full-stack development program covering modern web technologies and methodologies",
+      "Hands-on experience with industry best practices for frontend and backend development",
+    ],
+    color: "#FF6B6B",
+  },
 ];
