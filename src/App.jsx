@@ -18,6 +18,7 @@ function App() {
 
   // Refs
   const observerRef = useRef(null);
+  const checkedSectionsRef = useRef(new Set());
 
   // Effects
   useEffect(() => {
@@ -42,6 +43,19 @@ function App() {
   const handleSectionRef = (el) => {
     if (el && observerRef.current) {
       observerRef.current.observe(el);
+
+      // Only check once per section
+      if (!checkedSectionsRef.current.has(el.id)) {
+        checkedSectionsRef.current.add(el.id);
+
+        // Check if element is already visible on mount
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isVisible) {
+          setVisibleSections((prev) => new Set([...prev, el.id]));
+        }
+      }
     }
   };
 
