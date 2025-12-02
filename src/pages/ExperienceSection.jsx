@@ -51,6 +51,7 @@ function ExperienceSection({ darkMode, isVisible, sectionRef }) {
 
         {/* Work Experience and Education */}
         <div className="grid md:grid-cols-2 gap-6">
+          {/* Work Experience */}
           <div
             className={`border rounded-lg p-6 ${
               darkMode ? "border-gray-700" : "border-gray-300"
@@ -62,15 +63,18 @@ function ExperienceSection({ darkMode, isVisible, sectionRef }) {
             {workExperienceData.map((job, idx) => (
               <div key={idx} className="mb-4">
                 <h4 className="font-semibold mb-2">{job.company}</h4>
-                {job.details.map((detail, detailIdx) => (
-                  <p key={detailIdx} className="text-sm">
-                    {detail}
-                  </p>
-                ))}
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  {job.details.map((detail, detailIdx) => (
+                    <li key={detailIdx} className="text-sm">
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
 
+          {/* Education */}
           <div
             className={`border rounded-lg p-6 ${
               darkMode ? "border-gray-700" : "border-gray-300"
@@ -80,12 +84,53 @@ function ExperienceSection({ darkMode, isVisible, sectionRef }) {
               Education
             </h3>
             {educationData.map((edu, idx) => (
-              <div key={idx} className="flex items-center gap-4 mb-4">
-                <div
-                  className="w-16 h-16 rounded"
-                  style={{ backgroundColor: edu.color }}
-                />
-                <p className="font-medium">{edu.school}</p>
+              <div key={idx} className="mb-6">
+                <div className="flex items-center gap-4 mb-2">
+                  <div
+                    className="w-16 h-16 rounded flex-shrink-0"
+                    style={{ backgroundColor: edu.color }}
+                  />
+                  <div>
+                    <p className="font-medium text-lg">{edu.school}</p>
+                    {edu.degree && (
+                      <p className="text-sm text-gray-500">
+                        {edu.degree}
+                        {edu.majors && ` – ${edu.majors.join(", ")}`}
+                      </p>
+                    )}
+                    {edu.location && (
+                      <p className="text-sm text-gray-400">{edu.location}</p>
+                    )}
+                    {edu.graduation && (
+                      <p className="text-sm text-gray-400">
+                        Graduation: {edu.graduation}
+                      </p>
+                    )}
+                    {edu.duration && (
+                      <p className="text-sm text-gray-400">{edu.duration}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Focus / Description */}
+                {edu.focus && (
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-700">
+                    {edu.focus.map((item, i) => (
+                      <li key={i} className="text-sm">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {edu.description && (
+                  <ul className="list-disc list-inside space-y-1 ml-4 text-gray-700">
+                    {edu.description.map((item, i) => (
+                      <li key={i} className="text-sm">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
