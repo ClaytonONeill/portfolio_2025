@@ -1,7 +1,7 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 
-function IntroSection() {
+function IntroSection({ darkMode, isVisible, sectionRef }) {
   // Methods
   const calculateExperience = () => {
     const currentDate = new Date().getFullYear();
@@ -13,6 +13,7 @@ function IntroSection() {
   return (
     <section
       id="intro"
+      ref={sectionRef}
       className="min-h-screen flex items-center justify-center px-6"
     >
       <div className="max-w-4xl w-full flex flex-col md:flex-row items-center justify-between gap-12">

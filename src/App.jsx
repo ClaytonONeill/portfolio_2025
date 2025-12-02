@@ -69,7 +69,11 @@ function App() {
     >
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <IntroSection darkMode={darkMode} />
+      <IntroSection
+        darkMode={darkMode}
+        isVisible={visibleSections.has("intro")}
+        sectionRef={handleSectionRef}
+      />
 
       <ProjectsSection
         darkMode={darkMode}
