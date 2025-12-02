@@ -145,18 +145,6 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
               </button>
             </div>
           </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-gray-600">
-            <p className="text-sm italic opacity-70">
-              Copyright 2025, Clayton O'Neil
-            </p>
-            <button
-              onClick={scrollToTop}
-              className="px-4 py-2 bg-purple-300 text-gray-900 rounded-lg hover:bg-purple-400 transition-all text-sm font-medium hover:scale-105"
-            >
-              Back to top
-            </button>
-          </div>
         </div>
       </div>
     </section>
