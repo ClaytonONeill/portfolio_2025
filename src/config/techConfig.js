@@ -11,4 +11,5 @@ export const techColors = {
   Backbone: "#a12727ff",
   Leaflet: "#9c3a8cff",
   DotNet: "#610869ff",
+  ChartJs: "#dacd25ff",
 };

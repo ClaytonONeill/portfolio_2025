@@ -18,10 +18,11 @@ export const projectsData = [
   },
   {
     id: 2,
-    title: "Project Title",
-    description: "Project Description",
-    image: null,
-    technologies: ["JavaScript", "CSS", "HTML"],
+    title: "MTA TIGERS",
+    description:
+      "MTA TIGERS is a centralized platform developed for the Maryland Department of Transportation (MDOT) that consolidates key environmental data—including stormwater inspections, hazardous materials inventories, waste management records, air quality monitoring, and facility compliance histories—into a unified, real-time interface. The system features curated interactive maps, dynamic charting components, and at-a-glance indicators that display compliance status, permit summaries, and environmental risk levels across all MDOT facilities. A built-in custom reporting engine generates EPA-ready documentation for audits and regulatory submissions, enabling streamlined oversight and supporting continuous adherence to state and federal environmental standards.",
+    image: "/images/tigers.png",
+    technologies: ["JavaScript", "EsriSDK", "SSMS", "DotNet", "ChartJs"],
     isPublic: false,
     url: null,
   },
@@ -34,10 +35,10 @@ export const projectsData = [
     technologies: [
       "JavaScript",
       "Backbone",
+      "Node",
       "React",
       "Leaflet",
       "CSharp",
-      "Docker",
       "DotNet",
     ],
     isPublic: true,

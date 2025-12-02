@@ -47,7 +47,7 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
           >
             {/* IMAGE */}
             <div
-              className={`md:w-1/3 flex items-center justify-center border rounded-lg overflow-hidden ${
+              className={`md:w-1/3 h-72 md:h-80 flex items-center justify-center border rounded-lg overflow-hidden ${
                 darkMode
                   ? "border-gray-700 bg-gray-900/40"
                   : "border-gray-300 bg-gray-50/60"
@@ -56,7 +56,7 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full object-contain"
+                className="h-full w-auto object-contain"
               />
             </div>
 
@@ -91,7 +91,7 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
               {/* BUTTON */}
               {project.isPublic && (
                 <div className="mt-4">
-                  <a href={project.url}>
+                  <a href={project.url} target="_blank">
                     <button className="px-5 py-2 bg-cyan-400 text-gray-900 rounded-md hover:bg-cyan-500 transition-all hover:shadow-lg font-medium">
                       Visit
                     </button>

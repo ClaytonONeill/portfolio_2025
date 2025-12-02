@@ -62,11 +62,13 @@ function ExperienceSection({ darkMode, isVisible, sectionRef }) {
             {workExperienceData.map((job, idx) => (
               <div key={idx} className="mb-4">
                 <h4 className="font-semibold mb-2">{job.company}</h4>
-                {job.details.map((detail, detailIdx) => (
-                  <p key={detailIdx} className="text-sm">
-                    {detail}
-                  </p>
-                ))}
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  {job.details.map((detail, detailIdx) => (
+                    <li key={detailIdx} className="text-sm">
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
