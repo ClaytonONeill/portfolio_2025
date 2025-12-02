@@ -45,7 +45,7 @@ function IntroSection() {
           </p>
 
           {/* Typewriter Block */}
-          <p className="text-sm italic text-gray-500">
+          <div className="text-xl font-semibold">
             <Typewriter
               words={[
                 "I love building clean, responsive web apps.",
@@ -61,7 +61,7 @@ function IntroSection() {
               deleteSpeed={40}
               delaySpeed={2000}
             />
-          </p>
+          </div>
         </div>
       </div>
     </section>

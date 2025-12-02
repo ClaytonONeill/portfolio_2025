@@ -19,7 +19,7 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
           : "bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"
       }`}
     >
-      {/* Decorative background elements */}
+      {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl opacity-20 ${
@@ -33,50 +33,71 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
         ></div>
       </div>
 
-      <div className="max-w-4xl mx-auto space-y-6 relative z-10">
+      <div className="max-w-5xl mx-auto space-y-12 relative z-10">
         <h2 className="text-4xl font-serif italic mb-8">Projects</h2>
+
         {projectsData.map((project) => (
           <div
             key={project.id}
-            className={`border rounded-lg p-6 flex flex-col md:flex-row gap-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
+            className={`border rounded-xl p-6 flex flex-col md:flex-row gap-8 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
               darkMode
-                ? "border-gray-700 bg-gray-800/50"
-                : "border-gray-200 bg-white/70 shadow-md"
+                ? "border-gray-700 bg-gray-800/60"
+                : "border-gray-200 bg-white/80 shadow-md"
             }`}
           >
+            {/* IMAGE */}
             <div
-              className={`md:w-1/3 flex items-center justify-center border rounded overflow-hidden ${
+              className={`md:w-1/3 flex items-center justify-center border rounded-lg overflow-hidden ${
                 darkMode
-                  ? "border-gray-700 bg-gray-900/50"
-                  : "border-gray-200 bg-gray-50/50"
+                  ? "border-gray-700 bg-gray-900/40"
+                  : "border-gray-300 bg-gray-50/60"
               }`}
             >
-              <div className="text-center p-8">
-                <div className="text-4xl mb-2">📷</div>
-                <p className="text-sm text-gray-500">{"<project image>"}</p>
-              </div>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full object-contain"
+              />
             </div>
+
+            {/* CONTENT */}
             <div className="md:w-2/3 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm mb-4 opacity-90">{project.description}</p>
-                <p className="text-sm mb-2 font-medium">Technologies Used</p>
-                <div className="flex gap-2 flex-wrap items-center">
+                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+                <p className="text-sm mb-6 opacity-90">{project.description}</p>
+
+                <p className="text-sm mb-3 font-medium">Technologies Used</p>
+
+                {/* TECHNOLOGIES */}
+                <div className="flex flex-wrap gap-3 mb-6">
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="w-8 h-8 rounded shadow-sm hover:scale-110 transition-transform"
-                      style={{ backgroundColor: techColors[tech] || "#ccc" }}
-                      title={tech}
-                    />
+                      className={`px-3 py-2 rounded-md text-sm font-medium shadow 
+              hover:scale-110 transition-transform
+              ${
+                darkMode
+                  ? "text-gray-900 shadow-black/20"
+                  : "text-white shadow-lg"
+              }`}
+                      style={{ backgroundColor: techColors[tech] || "#777" }}
+                    >
+                      {tech}
+                    </span>
                   ))}
-                  {project.isPublic && (
-                    <button className="ml-auto px-4 py-1 bg-cyan-400 text-gray-900 rounded hover:bg-cyan-500 transition-all hover:shadow-lg font-medium">
-                      Visit
-                    </button>
-                  )}
                 </div>
               </div>
+
+              {/* BUTTON */}
+              {project.isPublic && (
+                <div className="mt-4">
+                  <a href={project.url}>
+                    <button className="px-5 py-2 bg-cyan-400 text-gray-900 rounded-md hover:bg-cyan-500 transition-all hover:shadow-lg font-medium">
+                      Visit
+                    </button>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         ))}
