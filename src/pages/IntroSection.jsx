@@ -45,13 +45,13 @@ function IntroSection() {
           </p>
 
           {/* Typewriter Block */}
-          <p className="text-sm italic text-gray-500">
+          <div className="text-xl font-semibold">
             <Typewriter
               words={[
-                "I love building clean, responsive web apps.",
+                "I love building clean, responsive, and accessible web apps.",
                 "I have two pit bulls named Lemon and Arnold.",
-                "I also have two rats named Pencil and Francois",
-                "I enjoy working with React, Node, and modern CSS.",
+                "I also have two rats named Pencil and Francois.",
+                "I enjoy working with React, Node, and mapping technologies.",
                 "I’m always learning something new in tech.",
               ]}
               loop={true}
@@ -61,7 +61,7 @@ function IntroSection() {
               deleteSpeed={40}
               delaySpeed={2000}
             />
-          </p>
+          </div>
         </div>
       </div>
     </section>

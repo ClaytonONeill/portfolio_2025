@@ -12,7 +12,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
   };
 
   const handleSendMessage = () => {
-    const mailtoLink = `mailto:your.email@example.com?subject=Message from ${encodeURIComponent(
+    const mailtoLink = `mailto:clayoneillwebdev@gmail.com?subject=Message from ${encodeURIComponent(
       formData.name
     )}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
@@ -36,7 +36,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
     <section
       id="contact"
       ref={sectionRef}
-      className={`min-h-screen py-20 px-6 transition-opacity duration-1000 relative ${
+      className={`py-20 px-6 transition-opacity duration-1000 relative ${
         isVisible ? "opacity-100" : "opacity-0"
       } ${
         darkMode
@@ -59,16 +59,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
-        <h2
-          className={`text-4xl font-serif italic mb-8 ${
-            darkMode
-              ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400"
-              : "text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600"
-          }`}
-        >
-          Contact
-        </h2>
-
+        <h2 className="text-4xl font-serif italic mb-8">Contact</h2>
         <div
           className={`border rounded-lg p-8 backdrop-blur-sm transition-all duration-300 ${
             darkMode
@@ -137,12 +128,14 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
                 Interested in working together?
               </p>
               <p className="mb-6 opacity-80">Download my resume below!</p>
-              <button
-                onClick={handleDownloadResume}
-                className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold hover:scale-105"
+              <a
+                href="/resume/Clayton_ONeil_Resume.pdf"
+                download="Clayton_ONeil_Resume.pdf"
               >
-                Download Resume
-              </button>
+                <button className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold hover:scale-105 cursor-pointer">
+                  Download Resume
+                </button>
+              </a>
             </div>
           </div>
         </div>
