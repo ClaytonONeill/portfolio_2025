@@ -129,8 +129,8 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
               </p>
               <p className="mb-6 opacity-80">Download my resume below!</p>
               <a
-                href="/resume/Clayton_ONeil_Resume.pdf"
-                download="Clayton_ONeil_Resume.pdf"
+                href="/resume/Clayton_ONeill_Resume.pdf"
+                download="Clayton_ONeill_Resume.pdf"
               >
                 <button className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold hover:scale-105 cursor-pointer">
                   Download Resume
