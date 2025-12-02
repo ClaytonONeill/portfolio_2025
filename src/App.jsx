@@ -15,6 +15,7 @@ function App() {
   // State
   const [darkMode, setDarkMode] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
+  const [mounted, setMounted] = useState(false); // <-- NEW: track first paint
 
   // Refs
   const observerRef = useRef(null);
@@ -22,6 +23,8 @@ function App() {
 
   // Effects
   useEffect(() => {
+    setMounted(true); // <-- mark as mounted after first render
+
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,27 +37,23 @@ function App() {
     );
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+      if (observerRef.current) observerRef.current.disconnect();
     };
   }, []);
 
   const handleSectionRef = (el) => {
-    if (el && observerRef.current) {
-      observerRef.current.observe(el);
+    if (!el) return;
+    if (observerRef.current) observerRef.current.observe(el);
 
-      // Only check once per section
-      if (!checkedSectionsRef.current.has(el.id)) {
-        checkedSectionsRef.current.add(el.id);
+    if (!checkedSectionsRef.current.has(el.id)) {
+      checkedSectionsRef.current.add(el.id);
 
-        // Check if element is already visible on mount
-        const rect = el.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      // Initial visibility check
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-        if (isVisible) {
-          setVisibleSections((prev) => new Set([...prev, el.id]));
-        }
+      if (isVisible) {
+        setVisibleSections((prev) => new Set([...prev, el.id]));
       }
     }
   };
@@ -69,23 +68,27 @@ function App() {
     >
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <IntroSection darkMode={darkMode} />
+      <IntroSection
+        darkMode={darkMode}
+        isVisible={mounted && visibleSections.has("intro")}
+        sectionRef={handleSectionRef}
+      />
 
       <ProjectsSection
         darkMode={darkMode}
-        isVisible={visibleSections.has("projects")}
+        isVisible={mounted && visibleSections.has("projects")}
         sectionRef={handleSectionRef}
       />
 
       <ExperienceSection
         darkMode={darkMode}
-        isVisible={visibleSections.has("experience")}
+        isVisible={mounted && visibleSections.has("experience")}
         sectionRef={handleSectionRef}
       />
 
       <ContactSection
         darkMode={darkMode}
-        isVisible={visibleSections.has("contact")}
+        isVisible={mounted && visibleSections.has("contact")}
         sectionRef={handleSectionRef}
       />
 
