@@ -73,8 +73,7 @@ function ProjectsSection({ darkMode, isVisible, sectionRef }) {
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className={`px-3 py-2 rounded-md text-sm font-medium shadow 
-              hover:scale-110 transition-transform
+                      className={`px-3 py-2 rounded-md text-sm font-medium shadow
               ${
                 darkMode
                   ? "text-gray-900 shadow-black/20"
