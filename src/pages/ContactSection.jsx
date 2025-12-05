@@ -109,7 +109,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
                 />
                 <button
                   onClick={handleSendMessage}
-                  className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold hover:scale-105"
+                  className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold"
                 >
                   Send Message
                 </button>
@@ -132,7 +132,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
                 href="/resume/Clayton_ONeill_Resume.pdf"
                 download="Clayton_ONeill_Resume.pdf"
               >
-                <button className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold hover:scale-105 cursor-pointer">
+                <button className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold cursor-pointer">
                   Download Resume
                 </button>
               </a>

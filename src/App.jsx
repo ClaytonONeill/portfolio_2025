@@ -81,7 +81,7 @@ function App() {
         sectionRef={handleSectionRef}
       />
 
-      <PongGame />
+      <PongGame darkMode={darkMode} />
 
       <ExperienceSection
         darkMode={darkMode}
