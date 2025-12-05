@@ -30,7 +30,7 @@ export const projectsData = [
     id: 3,
     title: "Maryland Defense Network",
     description:
-      "The Maryland Defense Network (MDN) allows users to make meaningful connections, understand government contracting opportunities, grow business prospects, and assess the overall defense industry impact. MDN was created through a Defense Industry Adjustment grant offered to the Maryland Department of Commerce by the US Department of Defense, Office of Local Defense Community Cooperation. The grant was executed in conjunction with Towson University’s Regional Economics Studies Institute and Center for GIS .",
+      "The Maryland Defense Network (MDN) allows users to make meaningful connections, understand government contracting opportunities, grow business prospects, and assess the overall defense industry impact. MDN was created through a Defense Industry Adjustment grant offered to the Maryland Department of Commerce by the US Department of Defense, Office of Local Defense Community Cooperation. The grant was executed in conjunction with Towson University’s Regional Economics Studies Institute and Center for GIS.",
     image: "/images/mdn.png",
     technologies: [
       "JavaScript",
@@ -43,5 +43,25 @@ export const projectsData = [
     ],
     isPublic: true,
     url: "https://marylanddefensenetwork.org/",
+  },
+  {
+    id: 4,
+    title: "Towson Campus Map",
+    description:
+      "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.  This map will be going live in the next couple months!",
+    image: "/images/campus-map.png",
+    technologies: ["React", "EsriSDk", "Node", "MaterialUI"],
+    isPublic: false,
+    url: null,
+  },
+  {
+    id: 5,
+    title: "Web Development Resource Hub",
+    description:
+      "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.  This map will be going live in the next couple months!",
+    image: "/images/campus-map.png",
+    technologies: ["React", "EsriSDk", "Node", "MaterialUI"],
+    isPublic: true,
+    url: "http://cmst387-umgc-coneill13.azurewebsites.net/",
   },
 ];

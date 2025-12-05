@@ -12,4 +12,5 @@ export const techColors = {
   Leaflet: "#9c3a8cff",
   DotNet: "#610869ff",
   ChartJs: "#dacd25ff",
+  MaterialUI: "#0288d1",
 };
