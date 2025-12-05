@@ -2,7 +2,7 @@ export const techColors = {
   React: "#61DAFB",
   Node: "#E389B9",
   EsriSDK: "#7DD3C0",
-  Python: "#2133d3ff",
+  Python: "#e98008ff",
   JavaScript: "#F0B27A",
   CSS: "#BB8FCE",
   HTML: "#7DD3C0",
@@ -13,4 +13,5 @@ export const techColors = {
   DotNet: "#610869ff",
   ChartJs: "#dacd25ff",
   MaterialUI: "#0288d1",
+  Azure: "#446372ff",
 };

@@ -35,6 +35,7 @@ export const projectsData = [
     technologies: [
       "JavaScript",
       "Backbone",
+      "Python",
       "Node",
       "React",
       "Leaflet",
@@ -50,7 +51,7 @@ export const projectsData = [
     description:
       "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.  This map will be going live in the next couple months!",
     image: "/images/campus-map.png",
-    technologies: ["React", "EsriSDk", "Node", "MaterialUI"],
+    technologies: ["React", "EsriSDk", "Node", "MaterialUI", "Azure", "Python"],
     isPublic: false,
     url: null,
   },
@@ -58,9 +59,9 @@ export const projectsData = [
     id: 5,
     title: "Web Development Resource Hub",
     description:
-      "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.  This map will be going live in the next couple months!",
-    image: "/images/campus-map.png",
-    technologies: ["React", "EsriSDk", "Node", "MaterialUI"],
+      "One of my final assignments in my Web and Digital Design program.  This website was built completely with vanilla JS, HTML, and CSS.  This website acts as a resource hub for developers to have ready access to documentation and articles related to core web development and design concepts.",
+    image: "/images/resource-hub.png",
+    technologies: ["JavaScript", "HTML", "CSS", "Azure"],
     isPublic: true,
     url: "http://cmst387-umgc-coneill13.azurewebsites.net/",
   },
