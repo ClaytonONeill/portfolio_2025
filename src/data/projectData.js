@@ -65,4 +65,14 @@ export const projectsData = [
     isPublic: true,
     url: "http://cmst387-umgc-coneill13.azurewebsites.net/",
   },
+  {
+    id: 5,
+    title: "Pit Bull Protection Program",
+    description:
+      "This was a personal design project for a fake company to work on responsive design, routing, and basic JavaScript concepts.",
+    image: "/images/ppp.png",
+    technologies: ["JavaScript", "HTML", "CSS", "Azure"],
+    isPublic: false,
+    url: null,
+  },
 ];
