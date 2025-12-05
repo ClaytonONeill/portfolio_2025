@@ -10,6 +10,7 @@ import ContactSection from "./pages/ContactSection";
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PongGame from "./components/PongGame";
 
 function App() {
   // State
@@ -79,6 +80,8 @@ function App() {
         isVisible={mounted && visibleSections.has("projects")}
         sectionRef={handleSectionRef}
       />
+
+      <PongGame />
 
       <ExperienceSection
         darkMode={darkMode}

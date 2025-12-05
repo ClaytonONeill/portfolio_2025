@@ -30,11 +30,12 @@ export const projectsData = [
     id: 3,
     title: "Maryland Defense Network",
     description:
-      "The Maryland Defense Network (MDN) allows users to make meaningful connections, understand government contracting opportunities, grow business prospects, and assess the overall defense industry impact. MDN was created through a Defense Industry Adjustment grant offered to the Maryland Department of Commerce by the US Department of Defense, Office of Local Defense Community Cooperation. The grant was executed in conjunction with Towson University’s Regional Economics Studies Institute and Center for GIS .",
+      "The Maryland Defense Network (MDN) allows users to make meaningful connections, understand government contracting opportunities, grow business prospects, and assess the overall defense industry impact. MDN was created through a Defense Industry Adjustment grant offered to the Maryland Department of Commerce by the US Department of Defense, Office of Local Defense Community Cooperation. The grant was executed in conjunction with Towson University’s Regional Economics Studies Institute and Center for GIS.",
     image: "/images/mdn.png",
     technologies: [
       "JavaScript",
       "Backbone",
+      "Python",
       "Node",
       "React",
       "Leaflet",
@@ -43,5 +44,35 @@ export const projectsData = [
     ],
     isPublic: true,
     url: "https://marylanddefensenetwork.org/",
+  },
+  {
+    id: 4,
+    title: "Towson Campus Map",
+    description:
+      "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.  This map will be going live in the next couple months!",
+    image: "/images/campus-map.png",
+    technologies: ["React", "EsriSDk", "Node", "MaterialUI", "Azure", "Python"],
+    isPublic: false,
+    url: null,
+  },
+  {
+    id: 5,
+    title: "Web Development Resource Hub",
+    description:
+      "One of my final assignments in my Web and Digital Design program.  This website was built completely with vanilla JS, HTML, and CSS.  This website acts as a resource hub for developers to have ready access to documentation and articles related to core web development and design concepts.",
+    image: "/images/resource-hub.png",
+    technologies: ["JavaScript", "HTML", "CSS", "Azure"],
+    isPublic: true,
+    url: "http://cmst387-umgc-coneill13.azurewebsites.net/",
+  },
+  {
+    id: 5,
+    title: "Pit Bull Protection Program",
+    description:
+      "This was a personal design project for a fake company to work on responsive design, routing, and basic JavaScript concepts.",
+    image: "/images/ppp.png",
+    technologies: ["JavaScript", "HTML", "CSS", "Azure"],
+    isPublic: false,
+    url: null,
   },
 ];
