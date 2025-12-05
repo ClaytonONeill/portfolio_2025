@@ -66,7 +66,7 @@ export const projectsData = [
     url: "http://cmst387-umgc-coneill13.azurewebsites.net/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Pit Bull Protection Program",
     description:
       "The Pit Bull Protection Program was a personal design assignment created for a fictional company as part of my Web and Digital Design 387 course. The goal was to explore and apply core front-end concepts in a practical, real-world scenario. I focused heavily on responsive design, ensuring that every page adapted smoothly across mobile, tablet, and desktop layouts. I also implemented simple routing and incorporated foundational JavaScript logic to support interactive elements and dynamic content. Although the company itself was fictional, the project allowed me to practice building a polished, user-friendly interface from scratch while strengthening my understanding of modern design principles and front-end development workflows.",
