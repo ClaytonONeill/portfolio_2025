@@ -59,7 +59,7 @@ export const projectsData = [
     id: 5,
     title: "Web Development Resource Hub",
     description:
-      "One of my final assignments in my Web and Digital Design program.  This website was built completely with vanilla JS, HTML, and CSS.  This website acts as a resource hub for developers to have ready access to documentation and articles related to core web development and design concepts.",
+      "As the final assignment in my Web and Digital Design CMST 388 course I built the Web Development Resource Hub using only vanilla JavaScript, HTML, and CSS, focusing on clean structure, accessible design, and efficient client-side functionality without relying on external frameworks. The purpose of the site is to act as a centralized resource hub for developers, giving them quick access to essential documentation, reference guides, and articles covering key web development and design concepts. By organizing this material into a clear, easy-to-navigate layout, the project supports learners who want a straightforward place to review foundational topics, explore best practices, and strengthen their understanding of front-end principles. It also demonstrates my ability to build practical, responsive tools completely from the ground up.",
     image: "/images/resource-hub.png",
     technologies: ["JavaScript", "HTML", "CSS", "Azure"],
     isPublic: true,
@@ -69,7 +69,7 @@ export const projectsData = [
     id: 5,
     title: "Pit Bull Protection Program",
     description:
-      "This was a personal design project for a fake company to work on responsive design, routing, and basic JavaScript concepts.",
+      "The Pit Bull Protection Program was a personal design assignment created for a fictional company as part of my Web and Digital Design 387 course. The goal was to explore and apply core front-end concepts in a practical, real-world scenario. I focused heavily on responsive design, ensuring that every page adapted smoothly across mobile, tablet, and desktop layouts. I also implemented simple routing and incorporated foundational JavaScript logic to support interactive elements and dynamic content. Although the company itself was fictional, the project allowed me to practice building a polished, user-friendly interface from scratch while strengthening my understanding of modern design principles and front-end development workflows.",
     image: "/images/ppp.png",
     technologies: ["JavaScript", "HTML", "CSS", "Azure"],
     isPublic: false,
