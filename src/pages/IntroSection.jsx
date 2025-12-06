@@ -1,5 +1,6 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
+import { motion, AnimatePresence } from "framer-motion";
 
 function IntroSection({ darkMode, isVisible, sectionRef }) {
   const calculateExperience = () => {
@@ -8,22 +9,38 @@ function IntroSection({ darkMode, isVisible, sectionRef }) {
     return currentDate - startingDate;
   };
 
+  const backgrounds = {
+    light: "/images/background.gif",
+    dark: "/images/background-dark-mode.gif",
+  };
+
   return (
     <section
       id="intro"
       ref={sectionRef}
-      className="min-h-screen md:h-[67vh] relative px-6"
-      style={{
-        backgroundImage: `url(${
-          darkMode
-            ? "/images/background-dark-mode.gif"
-            : "/images/background.gif"
-        })`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="min-h-screen md:h-[67vh] relative px-6 overflow-hidden"
     >
+      {/* AnimatePresence handles smooth exit + enter */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={darkMode ? "dark" : "light"}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.1 }}
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: `url(${
+              darkMode ? backgrounds.dark : backgrounds.light
+            })`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      </AnimatePresence>
+
+      {/* Text Content */}
       <div
         className={`absolute top-[18%] md:top-[20%] left-1/2 -translate-x-1/2 max-w-md md:max-w-lg z-10 text-center 
           ${darkMode ? "text-white" : "text-black"}`}
@@ -40,7 +57,6 @@ function IntroSection({ darkMode, isVisible, sectionRef }) {
           years of experience!
         </p>
 
-        {/* Typewriter Block */}
         <div className="text-sm md:text-2xl font-semibold drop-shadow-lg leading-relaxed">
           <Typewriter
             words={[
