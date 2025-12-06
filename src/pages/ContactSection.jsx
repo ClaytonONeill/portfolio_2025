@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 function ContactSection({ darkMode, isVisible, sectionRef }) {
   const [formData, setFormData] = useState({
@@ -6,30 +7,40 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState(null);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  const handleSendMessage = () => {
-    const mailtoLink = `mailto:clayoneillwebdev@gmail.com?subject=Message from ${encodeURIComponent(
-      formData.name
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoLink;
-  };
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleDownloadResume = () => {
-    // Replace with your actual resume file path
-    const link = document.createElement("a");
-    link.href = "/path-to-resume.pdf";
-    link.download = "Clayton_ONeil_Resume.pdf";
-    link.click();
-  };
+  const handleSendMessage = async () => {
+    const { name, email, message } = formData;
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!name || !email || !message) {
+      return setStatus({ type: "error", msg: "All fields are required" });
+    }
+    if (!validateEmail(email)) {
+      return setStatus({ type: "error", msg: "Invalid email address" });
+    }
+
+    try {
+      await emailjs.send(
+        "service_8e8zwac",
+        "template_hmd9u1b",
+        { from_name: name, from_email: email, message },
+        "6eDS7u9pyg4wLuSkO"
+      );
+
+      setStatus({ type: "success", msg: "Message sent successfully!" });
+      setFormData({ ...formData, message: "" });
+    } catch (err) {
+      console.error(err);
+      setStatus({
+        type: "error",
+        msg: "Failed to send message. Try again later.",
+      });
+    }
   };
 
   return (
@@ -40,24 +51,10 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
         isVisible ? "opacity-100" : "opacity-0"
       } ${
         darkMode
-          ? "bg-gradient-to-tr from-gray-900 via-cyan-900/20 to-gray-900"
+          ? "bg-gray-900"
           : "bg-gradient-to-tr from-cyan-50 via-teal-50 to-blue-50"
       }`}
     >
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className={`absolute top-1/4 right-20 w-80 h-80 rounded-full blur-3xl opacity-20 ${
-            darkMode ? "bg-cyan-500" : "bg-teal-300"
-          }`}
-        ></div>
-        <div
-          className={`absolute bottom-1/4 left-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${
-            darkMode ? "bg-blue-500" : "bg-blue-300"
-          }`}
-        ></div>
-      </div>
-
       <div className="max-w-4xl mx-auto relative z-10">
         <h2 className="text-4xl font-serif italic mb-8">Contact</h2>
         <div
@@ -68,6 +65,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
           }`}
         >
           <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Contact Form */}
             <div>
               <h3 className="text-2xl mb-6 font-semibold">Get in touch!</h3>
               <div className="space-y-4">
@@ -113,9 +111,21 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
                 >
                   Send Message
                 </button>
+                {status && (
+                  <p
+                    className={`mt-2 ${
+                      status.type === "success"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    }`}
+                  >
+                    {status.msg}
+                  </p>
+                )}
               </div>
             </div>
 
+            {/* Resume Download */}
             <div
               className={`border rounded-lg p-8 flex flex-col items-center justify-center text-center backdrop-blur-sm ${
                 darkMode
