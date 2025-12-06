@@ -4,17 +4,18 @@ function PongGame({ darkMode }) {
   const canvasRef = useRef(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState({ player: 0, ai: 0 });
-
-  // NEW: winner state + side flash states
-  const [winner, setWinner] = useState(null); // "player" | "ai" | null
+  const [winner, setWinner] = useState(null);
   const [flashLeft, setFlashLeft] = useState(false);
   const [flashRight, setFlashRight] = useState(false);
 
   const FLASH_DURATION = 150;
   const WIN_SCORE = 10;
+  const BASE_SPEED = 5;
+  const SPEED_INCREASE_PER_SECOND = 1.05; // 5% per second
+  const MAX_SPEED = 20;
 
   const gameStateRef = useRef({
-    ball: { x: 400, y: 200, dx: 4, dy: 4, radius: 8 },
+    ball: { x: 400, y: 200, dx: 0, dy: 0, radius: 8 },
     player: { x: 20, y: 150, width: 12, height: 80, speed: 6 },
     ai: { x: 768, y: 150, width: 12, height: 80, speed: 4 },
     canvasWidth: 800,
@@ -22,9 +23,9 @@ function PongGame({ darkMode }) {
     keys: {},
     touchY: null,
     animationId: null,
+    lastTime: null,
   });
 
-  // Flash helper
   const triggerFlash = (side) => {
     if (side === "left") {
       setFlashLeft(true);
@@ -38,7 +39,6 @@ function PongGame({ darkMode }) {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const state = gameStateRef.current;
 
     const handleKeyDown = (e) => {
@@ -47,31 +47,11 @@ function PongGame({ darkMode }) {
         state.keys[e.key] = true;
       }
     };
-
     const handleKeyUp = (e) => {
       if (e.key === "ArrowUp" || e.key === "ArrowDown") {
         state.keys[e.key] = false;
       }
     };
-
-    const handleTouchStart = (e) => {
-      e.preventDefault();
-      const touch = e.touches[0];
-      const rect = canvas.getBoundingClientRect();
-      state.touchY = touch.clientY - rect.top;
-    };
-
-    const handleTouchMove = (e) => {
-      e.preventDefault();
-      const touch = e.touches[0];
-      const rect = canvas.getBoundingClientRect();
-      state.touchY = touch.clientY - rect.top;
-    };
-
-    const handleTouchEnd = () => {
-      state.touchY = null;
-    };
-
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
       const mouseY = e.clientY - rect.top;
@@ -80,47 +60,32 @@ function PongGame({ darkMode }) {
         Math.min(state.canvasHeight - state.player.height / 2, mouseY)
       );
     };
-
     const handleMouseLeave = () => {
       state.touchY = null;
     };
 
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
-    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
-    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
-    canvas.addEventListener("touchend", handleTouchEnd);
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
-      canvas.removeEventListener("touchstart", handleTouchStart);
-      canvas.removeEventListener("touchmove", handleTouchMove);
-      canvas.removeEventListener("touchend", handleTouchEnd);
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
-      const s = gameStateRef.current;
-      if (s.animationId) {
-        cancelAnimationFrame(s.animationId);
-        s.animationId = null;
-      }
+      if (state.animationId) cancelAnimationFrame(state.animationId);
     };
   }, []);
 
   const resetBall = () => {
     const state = gameStateRef.current;
-    const baseSpeed = 5;
-
     state.ball.x = state.canvasWidth / 2;
     state.ball.y = state.canvasHeight / 2;
-
     const angle = ((Math.random() - 0.5) * Math.PI) / 3;
-
-    state.ball.dx =
-      (Math.random() > 0.5 ? 1 : -1) * baseSpeed * Math.cos(angle);
-    state.ball.dy = baseSpeed * Math.sin(angle);
+    const dir = Math.random() > 0.5 ? 1 : -1;
+    state.ball.dx = dir * BASE_SPEED * Math.cos(angle);
+    state.ball.dy = BASE_SPEED * Math.sin(angle);
   };
 
   const drawStaticFrame = () => {
@@ -156,15 +121,18 @@ function PongGame({ darkMode }) {
     ctx.fill();
   };
 
-  const gameLoop = () => {
+  const gameLoop = (currentTime) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     const state = gameStateRef.current;
 
-    // stop game if winner exists
     if (winner) return;
+
+    if (!state.lastTime) state.lastTime = currentTime;
+    const deltaTime = (currentTime - state.lastTime) / 1000;
+    state.lastTime = currentTime;
 
     ctx.fillStyle = darkMode ? "#111827" : "#ffffff";
     ctx.fillRect(0, 0, state.canvasWidth, state.canvasHeight);
@@ -184,7 +152,7 @@ function PongGame({ darkMode }) {
       );
     }
 
-    // Center dashed line
+    // Center line
     ctx.strokeStyle = darkMode ? "#4b5563" : "#d1d5db";
     ctx.lineWidth = 2;
     ctx.setLineDash([10, 10]);
@@ -225,10 +193,11 @@ function PongGame({ darkMode }) {
     state.ball.y += state.ball.dy;
 
     // Walls
-    if (
-      state.ball.y - state.ball.radius <= 0 ||
-      state.ball.y + state.ball.radius >= state.canvasHeight
-    ) {
+    if (state.ball.y - state.ball.radius <= 0) {
+      state.ball.y = state.ball.radius; // push inside
+      state.ball.dy *= -1;
+    } else if (state.ball.y + state.ball.radius >= state.canvasHeight) {
+      state.ball.y = state.canvasHeight - state.ball.radius; // push inside
       state.ball.dy *= -1;
     }
 
@@ -260,7 +229,7 @@ function PongGame({ darkMode }) {
       state.ball.dy = hitPos * 5;
     }
 
-    // Scoring + WIN LOGIC + FLASH
+    // Scoring + WIN
     if (state.ball.x < 0) {
       triggerFlash("left");
       setScore((s) => {
@@ -295,16 +264,20 @@ function PongGame({ darkMode }) {
     );
     ctx.fillRect(state.ai.x, state.ai.y, state.ai.width, state.ai.height);
 
-    // Ball
+    // Draw ball
     ctx.fillStyle = darkMode ? "#ffffff" : "#111827";
     ctx.beginPath();
     ctx.arc(state.ball.x, state.ball.y, state.ball.radius, 0, Math.PI * 2);
     ctx.fill();
 
-    // Speed increase
-    const speedIncreaseFactor = 1.002;
-    state.ball.dx *= speedIncreaseFactor;
-    state.ball.dy *= speedIncreaseFactor;
+    // Frame-rate-independent speed increase with max cap
+    const speedMultiplier = Math.pow(SPEED_INCREASE_PER_SECOND, deltaTime);
+    state.ball.dx =
+      Math.sign(state.ball.dx) *
+      Math.min(Math.abs(state.ball.dx * speedMultiplier), MAX_SPEED);
+    state.ball.dy =
+      Math.sign(state.ball.dy) *
+      Math.min(Math.abs(state.ball.dy * speedMultiplier), MAX_SPEED);
 
     if (gameStarted) {
       state.animationId = requestAnimationFrame(gameLoop);
@@ -312,7 +285,7 @@ function PongGame({ darkMode }) {
   };
 
   const startGame = () => {
-    if (winner) return; // do not restart during win screen
+    if (winner) return;
     const state = gameStateRef.current;
     if (state.animationId) cancelAnimationFrame(state.animationId);
     resetBall();
@@ -322,7 +295,6 @@ function PongGame({ darkMode }) {
   const resetGame = () => {
     const state = gameStateRef.current;
     if (state.animationId) cancelAnimationFrame(state.animationId);
-
     setGameStarted(false);
     setWinner(null);
     setScore({ player: 0, ai: 0 });
@@ -339,14 +311,8 @@ function PongGame({ darkMode }) {
   };
 
   useEffect(() => {
-    if (gameStarted) gameLoop();
-    else {
-      const state = gameStateRef.current;
-      if (state.animationId) {
-        cancelAnimationFrame(state.animationId);
-        state.animationId = null;
-      }
-    }
+    if (gameStarted) gameStateRef.current.lastTime = null; // reset time
+    if (gameStarted) requestAnimationFrame(gameLoop);
   }, [gameStarted, darkMode, winner]);
 
   useEffect(() => {
@@ -372,7 +338,6 @@ function PongGame({ darkMode }) {
         </div>
 
         <div className="relative">
-          {/* Winner Overlay */}
           {winner && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/70 z-10 rounded-lg">
               <p className="text-white text-4xl font-bold">
@@ -380,7 +345,6 @@ function PongGame({ darkMode }) {
               </p>
             </div>
           )}
-
           <canvas
             ref={canvasRef}
             width={800}
