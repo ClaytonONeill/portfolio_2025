@@ -14,7 +14,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 border-b transition-colors ${
+      className={`fixed top-0 w-full z-50 border-b transition-colors shadow-lg shadow-black/15  ${
         darkMode ? "bg-gray-900 border-gray-700" : "bg-white border-gray-300"
       }`}
     >
