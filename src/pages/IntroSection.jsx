@@ -66,7 +66,7 @@ function IntroSection({ darkMode, isVisible, sectionRef }) {
               "I have a passion for tackling challenging problems.",
               "I have two pit bulls named Lemon and Arnold.",
               "I also have two rats named Pencil and Francois.",
-              "I'm always learning something new in tech.",
+              "I'm always learning something new in tech and looking for my next opportunity!",
             ]}
             loop={true}
             cursor
