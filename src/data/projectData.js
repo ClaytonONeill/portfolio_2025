@@ -49,11 +49,11 @@ export const projectsData = [
     id: 4,
     title: "Towson Campus Map",
     description:
-      "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.  This map will be going live in the next couple months!",
+      "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.",
     image: "/images/campus-map.png",
     technologies: ["React", "EsriSDk", "Node", "MaterialUI", "Azure", "Python"],
-    isPublic: false,
-    url: null,
+    isPublic: true,
+    url: "https://maps.towson.edu/",
   },
   {
     id: 5,
