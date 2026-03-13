@@ -14,4 +14,5 @@ export const techColors = {
   ChartJs: "#dacd25ff",
   MaterialUI: "#0288d1",
   Azure: "#446372ff",
+  Tailwind: "rgb(70, 146, 197)",
 };
