@@ -51,7 +51,7 @@ export const projectsData = [
     description:
       "This project was a complete reconstruction of the Towson University campus map.  This was a coordinated effort between our team at CGIS, Towson University's Department of Creative Services, and the Office of Technology Services.  This map was built to be accessibility forward with custom extensions developed to optimize screen reader functionality and keyboard navigation.  This new map also added in much greater level of control over map features and layer configurations to offer users a more customizable experience.",
     image: "/images/campus-map.png",
-    technologies: ["React", "EsriSDk", "Node", "MaterialUI", "Azure", "Python"],
+    technologies: ["React", "EsriSDK", "Node", "MaterialUI", "Azure", "Python"],
     isPublic: true,
     url: "https://maps.towson.edu/",
   },
@@ -61,8 +61,8 @@ export const projectsData = [
     description:
       "As the final assignment in my Web and Digital Design CMST 388 course I built the Web Development Resource Hub using only vanilla JavaScript, HTML, and CSS, focusing on clean structure, accessible design, and efficient client-side functionality without relying on external frameworks. The purpose of the site is to act as a centralized resource hub for developers, giving them quick access to essential documentation, reference guides, and articles covering key web development and design concepts. By organizing this material into a clear, easy-to-navigate layout, the project supports learners who want a straightforward place to review foundational topics, explore best practices, and strengthen their understanding of front-end principles. It also demonstrates my ability to build practical, responsive tools completely from the ground up.",
     image: "/images/resource-hub.png",
-    technologies: ["JavaScript", "HTML", "CSS", "Azure"],
-    isPublic: true,
+    technologies: ["JavaScript", "HTML", "Tailwind", "Azure"],
+    isPublic: false,
     url: "http://cmst387-umgc-coneill13.azurewebsites.net/",
   },
   {
@@ -71,7 +71,7 @@ export const projectsData = [
     description:
       "The Pit Bull Protection Program was a personal design assignment created for a fictional company as part of my Web and Digital Design 387 course. The goal was to explore and apply core front-end concepts in a practical, real-world scenario. I focused heavily on responsive design, ensuring that every page adapted smoothly across mobile, tablet, and desktop layouts. I also implemented simple routing and incorporated foundational JavaScript logic to support interactive elements and dynamic content. Although the company itself was fictional, the project allowed me to practice building a polished, user-friendly interface from scratch while strengthening my understanding of modern design principles and front-end development workflows.",
     image: "/images/ppp.png",
-    technologies: ["JavaScript", "HTML", "CSS", "Azure"],
+    technologies: ["JavaScript", "HTML", "Tailwind", "Azure"],
     isPublic: false,
     url: null,
   },
