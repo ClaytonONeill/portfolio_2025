@@ -2,7 +2,7 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { motion, AnimatePresence } from "framer-motion";
 
-function IntroSection({ darkMode, isVisible, sectionRef }) {
+function IntroSection({ darkMode, sectionRef }) {
   const calculateExperience = () => {
     const currentDate = new Date().getFullYear();
     const startingDate = new Date(2020, 2, 14).getFullYear();
@@ -66,7 +66,7 @@ function IntroSection({ darkMode, isVisible, sectionRef }) {
               "I have a passion for tackling challenging problems.",
               "I have two pit bulls named Lemon and Arnold.",
               "I also have two rats named Pencil and Francois.",
-              "I'm always learning something new in tech and looking for my next opportunity!",
+              "I'm always learning something new in tech and looking to grow as a developer!",
             ]}
             loop={true}
             cursor
