@@ -1,9 +1,10 @@
 export const workExperienceData = [
   {
-    company: "Software Developer II - Towson University",
+    company: "Software Developer III - Towson University",
     details: [
-      "Lead full-stack development of mapping applications and enterprise web solutions using React, Node.js, and modern JavaScript tooling",
-      "Collaborated face-to-face with campus clients and stakeholders to gather requirements, refine features, and deliver tailored solutions",
+      "Lead development of responsive, WCAG accessible data-driven front-end solutions using React and TypeScript",
+      "Designed and implemented robust RESTful APIs with .NET/C#",
+      "Architected and optimized SQL Server relational databases",
       "Worked within Agile sprints, participating in daily standups, sprint planning, and iterative release cycles",
       "Mentored junior developers and interns by conducting code reviews, pair programming sessions, and technical walkthroughs",
       "Presented project outcomes, technical topics, and best practices at university technology events and regional conferences",
@@ -44,7 +45,7 @@ export const educationData = [
     program: "Software Engineering Fellow",
     duration: "February 2020 - April 2020",
     description: [
-      "Intensive 24-week, 700-hour full-stack development program covering modern web technologies and methodologies",
+      "Intensive 12-week, 700-hour full-stack development program covering modern web technologies and methodologies",
       "Hands-on experience with industry best practices for frontend and backend development",
     ],
     color: "#FF6B6B",

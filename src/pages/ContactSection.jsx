@@ -29,7 +29,7 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
         "service_8e8zwac",
         "template_hmd9u1b",
         { from_name: name, from_email: email, message },
-        "6eDS7u9pyg4wLuSkO"
+        "6eDS7u9pyg4wLuSkO",
       );
 
       setStatus({ type: "success", msg: "Message sent successfully!" });
@@ -139,8 +139,8 @@ function ContactSection({ darkMode, isVisible, sectionRef }) {
               </p>
               <p className="mb-6 opacity-80">Download my resume below!</p>
               <a
-                href="/resume/Clayton_ONeill_Resume.pdf"
-                download="Clayton_ONeill_Resume.pdf"
+                href="/resume/Clay_ONeill_Resume.pdf"
+                download="Clay_ONeill_Resume.pdf"
               >
                 <button className="px-8 py-3 bg-cyan-400 text-gray-900 rounded-lg hover:bg-cyan-500 transition-all hover:shadow-lg font-semibold cursor-pointer">
                   Download Resume
