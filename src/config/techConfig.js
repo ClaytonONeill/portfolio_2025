@@ -1,5 +1,9 @@
 export const techColors = {
   React: "#61DAFB",
+  TypeScript: "#a12727ff",
+  Tailwind: "#4692c5",
+  SupaBase: "#35a127ff",
+  DaisyUI: "#dacd25ff",
   Node: "#E389B9",
   EsriSDK: "#7DD3C0",
   Python: "#e98008ff",
@@ -8,11 +12,10 @@ export const techColors = {
   HTML: "#7DD3C0",
   CSharp: "#52C7B8",
   SSMS: "#35a127ff",
-  Backbone: "#a12727ff",
   Leaflet: "#9c3a8cff",
   DotNet: "#610869ff",
   ChartJs: "#dacd25ff",
   MaterialUI: "#0288d1",
   Azure: "#446372ff",
-  Tailwind: "rgb(70, 146, 197)",
+  PostgreSQL: "#e98008ff",
 };
